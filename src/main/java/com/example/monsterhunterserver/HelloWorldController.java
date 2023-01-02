@@ -41,4 +41,10 @@ public class HelloWorldController {
             return new ResponseEntity<newUser>(newFirstUser, HttpStatus.OK);
         }
 
+    @DeleteMapping("/newuser")
+    public ResponseEntity delete(@RequestParam(value = "id") int id){
+
+        scoresRepository.deleteById(id);
+        return new ResponseEntity("User gelöscht", HttpStatus.OK);
+    }
 }
